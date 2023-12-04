@@ -58,8 +58,8 @@ class VideoGamesController extends Controller {
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function show(videoGames $videogames) {
-        return view('videogames.show', ['videogames' =>$videogames]);
+    public function show(videoGames $videogame) {
+        return view('videogames.show', ['videogame' =>$videogame]);
     }
 
     /**
@@ -68,8 +68,8 @@ class VideoGamesController extends Controller {
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function edit(videoGames $videogames) {
-        return view('videogames.edit', ['videogames' => $videogames]);
+    public function edit(videoGames $videogame) {
+        return view('videogames.edit', ['videogame' => $videogame]);
     }
 
     /**
@@ -104,9 +104,9 @@ class VideoGamesController extends Controller {
      * @param  \App\Models\Movie  $movie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(videoGames $videogames) {
+    public function destroy(videoGames $videogame) {
         try {
-            $videogames->delete();
+            $videogame->delete();
             return redirect('videogames')->with(['message' => 'The videogame has been deleted.']);
         } catch(\Exception $e) {
              return back()->withErrors(['message' => 'The videogame has not been deleted.']);
